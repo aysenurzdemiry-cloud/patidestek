@@ -126,36 +126,24 @@ export default function LandingPage() {
             <p className="text-slate-500 dark:text-slate-400 font-medium">Haritamızı kullanışlı kılan güçlü araçlar.</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <FeatureCard 
               icon={<MapPin className="w-6 h-6" />}
               title="İnteraktif Harita" 
-              desc="Tüm klinikleri Leaflet destekli dinamik harita üzerinde detaylı olarak görüntüleyin." 
+              desc="Tüm klinikleri haritada görüntüleyin." 
+              onClick={() => navigate('/map')}
             />
             <FeatureCard 
               icon={<Search className="w-6 h-6" />}
               title="Gelişmiş Filtreleme" 
-              desc="İlçe, mahalle veya doğrudan klinik ismine göre hızlı ve anlık arama yapın." 
+              desc="İlçe, mahalle veya isme göre hızlı arama yapın." 
+              onClick={() => navigate('/map')}
             />
             <FeatureCard 
               icon={<Navigation2 className="w-6 h-6" />}
               title="Yakınımdakiler" 
-              desc="Konum izni ile sadece size en yakın(3km) veterinerleri anında bulun." 
-            />
-            <FeatureCard 
-              icon={<Activity className="w-6 h-6" />}
-              title="Hızlı ve Kesintisiz" 
-              desc="Binlerce veriyi kümelendirme (clustering) ile takılmadan, akıcı bir şekilde inceleyin." 
-            />
-             <FeatureCard 
-              icon={<Users className="w-6 h-6" />}
-              title="Kullanıcı Dostu" 
-              desc="Glassmorphism destekli modern ve temiz arayüz ile karmaşadan uzak deneyim." 
-            />
-             <FeatureCard 
-              icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>}
-              title="Mobil Öncelikli" 
-              desc="Telefon, tablet ve masaüstünde kusursuz çalışan esnek (responsive) tasarım." 
+              desc="Konum izni ile size en yakın veterinerleri anında bulun." 
+              onClick={() => navigate('/map?locate=true')}
             />
           </div>
         </div>
@@ -201,17 +189,18 @@ export default function LandingPage() {
   );
 }
 
-function FeatureCard({ title, desc, icon }: { title: string, desc: string, icon: React.ReactNode }) {
+function FeatureCard({ title, desc, icon, onClick }: { title: string, desc: string, icon: React.ReactNode, onClick?: () => void }) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div 
       ref={ref}
+      onClick={onClick}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6 }}
-      className="bg-white dark:bg-slate-900/50 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md hover:border-orange-100 dark:hover:border-orange-500/30 transition-all group"
+      className={`bg-white dark:bg-slate-900/50 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md hover:border-orange-100 dark:hover:border-orange-500/30 transition-all group ${onClick ? 'cursor-pointer' : ''}`}
     >
       <div className="w-14 h-14 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white dark:group-hover:text-white transition-all duration-300">
         {icon}

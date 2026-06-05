@@ -41,26 +41,7 @@
 .leaflet-popup-tip-container {
   /* To ensure the tip respects the shadow / layout cleanly */
 }
-.marker-cluster-styled {
-  background: rgba(249, 115, 22, 0.6) !important;
-  border-radius: 50% !important;
-  color: white !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: 700 !important;
-  border: 3px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
-}
-
-:root.dark .marker-cluster-styled {
-  border-color: rgba(15, 23, 42, 0.8) !important; /* dark slate border */
-}
-
-.marker-cluster-styled div {
-  background: transparent !important;
-  color: white !important;
-}
+/* marker-cluster removed */
 
 /* Custom Scrollbar for Legend */
 .custom-scrollbar::-webkit-scrollbar {

@@ -63,6 +63,10 @@ export default function MapPage() {
       .then(data => {
         setClinics(data);
         setLoading(false);
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('locate') === 'true') {
+           handleLocateMe(() => setNearbyMode(true));
+        }
       })
       .catch(err => {
         console.error("Data fetch error:", err);
