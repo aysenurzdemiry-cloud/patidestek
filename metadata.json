@@ -1,0 +1,10 @@
+{
+  "name": "VetMap İstanbul",
+  "description": "İstanbul Kadıköy ve Üsküdar bölgesi veteriner klinikleri haritası. Üsküdar Üniversitesi Yapay Zeka ve Kodlama dersi final ödevi.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Leaflet Custom Overrides */
+.leaflet-container {
+  font-family: var(--font-sans);
+}
+
+:root.dark .leaflet-layer,
+:root.dark .leaflet-control-zoom-in,
+:root.dark .leaflet-control-zoom-out,
+:root.dark .leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* Custom Popup padding reset to allow our own header */
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: 0.75rem !important;
+}
+
+:root.dark .leaflet-popup-content-wrapper,
+:root.dark .leaflet-popup-tip {
+  background-color: #0f172a !important; /* slate-950 */
+  color: #f8fafc !important; /* slate-50 */
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+  line-height: normal !important;
+}
+
+.leaflet-popup-tip-container {
+  /* To ensure the tip respects the shadow / layout cleanly */
+}
+.marker-cluster-styled {
+  background: rgba(249, 115, 22, 0.6) !important;
+  border-radius: 50% !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  border: 3px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+:root.dark .marker-cluster-styled {
+  border-color: rgba(15, 23, 42, 0.8) !important; /* dark slate border */
+}
+
+.marker-cluster-styled div {
+  background: transparent !important;
+  color: white !important;
+}
+
+/* Custom Scrollbar for Legend */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1; 
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; 
+}
