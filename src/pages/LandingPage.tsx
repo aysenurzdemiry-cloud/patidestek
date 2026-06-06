@@ -5,6 +5,7 @@ import { MapPin, Search, Navigation2, Map as MapIcon, Heart, Shield, Activity, U
 import { cn } from '../lib/utils';
 import { Logo } from '../components/Logo';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { HeroMiniMap } from '../components/HeroMiniMap';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -74,31 +75,16 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
-          {/* Hero Illustration / Dashboard Preview Mockup */}
+          {/* Hero Illustration / Mini Map */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative lg:ml-auto w-full max-w-lg lg:max-w-none perspective-1000 z-10"
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative lg:ml-auto w-full max-w-xl lg:max-w-none z-10"
           >
-            <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/60 dark:border-slate-700/60 p-4 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 dark:shadow-slate-900/50 transform rotate-y-[-5deg] rotate-x-[5deg]">
-               <div className="bg-slate-100 dark:bg-slate-800 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-700 relative aspect-[4/3] flex items-center justify-center">
-                  {/* Decorative Mock Map Elements */}
-                  <div className="absolute inset-0 opacity-20 dark:opacity-10" style={{ backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-                  <div className="absolute top-1/3 left-1/4 w-12 h-12 bg-orange-500 rounded-full border-4 border-white dark:border-slate-800 shadow-lg animate-bounce" style={{ animationDuration: '3s' }} />
-                  <div className="absolute top-1/2 right-1/3 w-8 h-8 bg-slate-400 dark:bg-slate-600 rounded-full border-4 border-white dark:border-slate-800 shadow-md" />
-                  <div className="absolute bottom-1/4 left-1/2 w-10 h-10 bg-amber-500 rounded-full border-4 border-white dark:border-slate-800 shadow-md delay-100" />
-                  
-                  {/* Mock UI Card */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-4 flex items-center gap-4 border border-slate-100 dark:border-slate-800">
-                     <div className="w-12 h-12 bg-orange-100 dark:bg-orange-500/20 rounded-xl flex flex-shrink-0 items-center justify-center">
-                        <Heart className="w-6 h-6 text-orange-500 dark:text-orange-400" />
-                     </div>
-                     <div>
-                        <div className="h-5 w-32 bg-slate-200 dark:bg-slate-700 rounded-md mb-2"></div>
-                        <div className="h-3 w-48 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                     </div>
-                  </div>
+            <div className="bg-white dark:bg-slate-900 p-3 md:p-4 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border border-slate-100 dark:border-slate-800 ring-1 ring-black/5 dark:ring-white/5">
+               <div className="bg-slate-100 dark:bg-slate-800 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-700 relative h-[400px] md:h-[480px] w-full isolate">
+                  <HeroMiniMap />
                </div>
             </div>
           </motion.div>
